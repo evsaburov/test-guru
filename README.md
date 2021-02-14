@@ -1,19 +1,25 @@
 # README
 
-Учебный проект по основам Ruby on Rails.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Список сущностей для проекта Test Guru:
+Things you may want to cover:
 
-Администратор
+* Ruby version
 
-Пользователи
+* System dependencies
 
-Вопросы теста
+* Configuration
 
-Ответы теста
 
-Результаты теста
+* Database creation
 
-Тесты
+* Database initialization
 
-Категории тестов
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
