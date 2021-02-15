@@ -1,0 +1,11 @@
+.author_text {
+  width: 400px;
+  padding: 10px;
+  margin: auto;
+  background: #fc0;
+}
+
+.project_intro {
+  text-align: center;
+  padding: 30px 5px;
+}
