@@ -1,3 +1,7 @@
 # my condig paramert for version my app
 
-Rails.application.config.version_app = '0.1.0'
+module TestGuru
+  class Application
+    VERSION = '0.1.0'.freeze
+  end
+end
