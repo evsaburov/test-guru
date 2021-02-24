@@ -16,7 +16,7 @@ geography = Category.create(title: 'География')
 math = Category.create(title: 'Математика')
 
 tests_array = []
-def self.create_tests(title, level, category, author, tests_array)
+def create_tests(title, level, category, author, tests_array)
   tests_array << Test.create(title: title, level: level, category_id: category.id, author_id: author.id)
 end
 
