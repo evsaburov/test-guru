@@ -24,7 +24,7 @@ end
   create_tests(title, 4, math, evgeniy, tests_array)
 end
 
-%w[Газы Трения Электричество Давление].each do |title|
+%w[Газы Трение Электричество Давление].each do |title|
   create_tests(title, 2, physics, alexander, tests_array)
 end
 
