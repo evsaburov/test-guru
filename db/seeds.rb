@@ -5,45 +5,80 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-evgeniy = User.create(name: 'Евгений')
-alexander = User.create(name: 'Александр')
-viktor = User.create(name: 'Виктор')
-roman = User.create(name: 'Роман')
 
-history = Category.create(title: 'История')
-physics = Category.create(title: 'Физика')
-geography = Category.create(title: 'География')
-math = Category.create(title: 'Математика')
+users = User.create!([{ name: 'Евгений' }, { name: 'Александр' }, { name: 'Виктор' }, { name: 'Роман' }])
+categories = Category.create!([
+                                { title: 'История' }, { title: 'Физика' }, { title: 'География' }, { title: 'Математика' }
+                              ])
+tests = Test.create!([
+                       { title: 'Греция',         level: '1', category_id: categories[0].id, author_id: users[0].id, respondent_id: users[0].id },
+                       { title: 'Франция',        level: '1', category_id: categories[0].id, author_id: users[0].id, respondent_id: users[1].id },
+                       { title: 'Россия',         level: '1', category_id: categories[0].id, author_id: users[0].id, respondent_id: users[2].id },
+                       { title: 'Англия',         level: '1', category_id: categories[0].id, author_id: users[0].id, respondent_id: users[3].id },
+                       { title: 'Газы',           level: '2', category_id: categories[1].id, author_id: users[1].id, respondent_id: users[1].id },
+                       { title: 'Трение',         level: '2', category_id: categories[1].id, author_id: users[1].id, respondent_id: users[2].id },
+                       { title: 'Электричество',  level: '2', category_id: categories[1].id, author_id: users[1].id, respondent_id: users[3].id },
+                       { title: 'Давление',       level: '2', category_id: categories[1].id, author_id: users[1].id, respondent_id: users[1].id },
+                       { title: 'Континенты',     level: '3', category_id: categories[2].id, author_id: users[2].id, respondent_id: users[2].id },
+                       { title: 'Горы',           level: '3', category_id: categories[2].id, author_id: users[2].id, respondent_id: users[3].id },
+                       { title: 'Океаны',         level: '3', category_id: categories[2].id, author_id: users[2].id, respondent_id: users[1].id },
+                       { title: 'Пустыни',        level: '3', category_id: categories[2].id, author_id: users[2].id, respondent_id: users[2].id },
+                       { title: 'Функции',        level: '4', category_id: categories[3].id, author_id: users[3].id, respondent_id: users[3].id },
+                       { title: 'Переменные',     level: '4', category_id: categories[3].id, author_id: users[3].id, respondent_id: users[1].id },
+                       { title: 'Операции',       level: '4', category_id: categories[3].id, author_id: users[3].id, respondent_id: users[2].id },
+                       { title: 'Анализ',         level: '4', category_id: categories[3].id, author_id: users[3].id, respondent_id: users[3].id }
+                     ])
 
-tests_array = []
-def create_tests(title, level, category, author, tests_array)
-  tests_array << Test.create(title: title, level: level, category_id: category.id, author_id: author.id)
-end
+questions = Question.create!([
+                               { body: 'Что...?', test_id: tests[0].id }, { body: 'Почему...?', test_id: tests[0].id },
+                               { body: 'Что...?', test_id: tests[1].id }, { body: 'Почему...?', test_id: tests[1].id },
+                               { body: 'Что...?', test_id: tests[2].id }, { body: 'Почему...?', test_id: tests[2].id },
+                               { body: 'Что...?', test_id: tests[3].id }, { body: 'Почему...?', test_id: tests[3].id },
+                               { body: 'Что...?', test_id: tests[4].id }, { body: 'Почему...?', test_id: tests[4].id },
+                               { body: 'Что...?', test_id: tests[5].id }, { body: 'Почему...?', test_id: tests[5].id },
+                               { body: 'Что...?', test_id: tests[6].id }, { body: 'Почему...?', test_id: tests[6].id },
+                               { body: 'Что...?', test_id: tests[7].id }, { body: 'Почему...?', test_id: tests[7].id },
+                               { body: 'Что...?', test_id: tests[8].id }, { body: 'Почему...?', test_id: tests[8].id },
+                               { body: 'Что...?', test_id: tests[9].id }, { body: 'Почему...?', test_id: tests[9].id },
+                               { body: 'Что...?', test_id: tests[10].id }, { body: 'Почему...?', test_id: tests[10].id },
+                               { body: 'Что...?', test_id: tests[11].id }, { body: 'Почему...?', test_id: tests[11].id },
+                               { body: 'Что...?', test_id: tests[12].id }, { body: 'Почему...?', test_id: tests[12].id },
+                               { body: 'Что...?', test_id: tests[13].id }, { body: 'Почему...?', test_id: tests[13].id },
+                               { body: 'Что...?', test_id: tests[14].id }, { body: 'Почему...?', test_id: tests[14].id },
+                               { body: 'Что...?', test_id: tests[15].id }, { body: 'Почему...?', test_id: tests[15].id }
+                             ])
 
-%w[Функции Переменные Операции Анализ].each do |title|
-  create_tests(title, 4, math, evgeniy, tests_array)
-end
-
-%w[Газы Трение Электричество Давление].each do |title|
-  create_tests(title, 2, physics, alexander, tests_array)
-end
-
-%w[Континенты Горы Океаны Пустыни].each do |title|
-  create_tests(title, 3, geography, viktor, tests_array)
-end
-
-%w[Греция Франция Россия Англия].each do |title|
-  create_tests(title, 1, history, roman, tests_array)
-end
-
-questions_array = []
-%w[Что...? Где...? Когда...? Почему...? Сколько...?].each do |question|
-  tests_array.each do |test|
-    questions_array << Question.create(body: question, test_id: test.id)
-  end
-end
-
-answers_array = []
-questions_array.each do |question|
-  answers_array << Answer.create(body: 'Ответ такой ...', correct: [true, false].sample, question_id: question.id)
-end
+Answer.create!([
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[0].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[1].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[2].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[3].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[4].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[5].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[6].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[7].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[8].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[9].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[10].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[11].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[12].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[13].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[14].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[15].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[16].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[17].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[18].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[19].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[20].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[21].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[22].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[23].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[24].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[25].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[26].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[27].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[28].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[29].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[30].id },
+                 { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[31].id }
+               ])
