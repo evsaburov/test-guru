@@ -82,3 +82,22 @@ Answer.create!([
                  { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[30].id, respondent_id: users[0].id },
                  { body: 'Ответ такой ...', correct: [true, false].sample, question_id: questions[31].id, respondent_id: users[0].id }
                ])
+
+Result.create!([
+                 { test_id: tests[0].id, result: true, respondent_id: users[0].id },
+                 { test_id: tests[1].id, result: true, respondent_id: users[0].id },
+                 { test_id: tests[2].id, result: false, respondent_id: users[0].id },
+                 { test_id: tests[3].id, result: true, respondent_id: users[1].id },
+                 { test_id: tests[4].id, result: false, respondent_id: users[1].id },
+                 { test_id: tests[5].id, result: true, respondent_id: users[2].id },
+                 { test_id: tests[6].id, result: true, respondent_id: users[2].id },
+                 { test_id: tests[7].id, result: false, respondent_id: users[3].id },
+                 { test_id: tests[8].id, result: false, respondent_id: users[3].id },
+                 { test_id: tests[9].id, result: true, respondent_id: users[0].id },
+                 { test_id: tests[10].id, result: true, respondent_id: users[0].id },
+                 { test_id: tests[11].id, result: false, respondent_id: users[1].id },
+                 { test_id: tests[12].id, result: false, respondent_id: users[1].id },
+                 { test_id: tests[13].id, result: true, respondent_id: users[2].id },
+                 { test_id: tests[14].id, result: true, respondent_id: users[2].id },
+                 { test_id: tests[15].id, result: true, respondent_id: users[3].id },
+               ])
