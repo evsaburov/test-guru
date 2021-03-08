@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2021_02_28_175018) do
     t.text "body", null: false
     t.boolean "correct", default: false, null: false
     t.integer "question_id", null: false
+    t.integer "respondent_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "respondent_id", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["respondent_id"], name: "index_answers_on_respondent_id"
   end
