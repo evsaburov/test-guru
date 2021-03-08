@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  belongs_to :answer
+  belongs_to :result
+  belongs_to :test
+
   def tests(level)
     Test.where(level: level)
         .joins('join results on results.test_id = tests.id')
