@@ -1,9 +1,11 @@
 class Test < ApplicationRecord
-  belongs_to :questions
+  belongs_to :category
 
-  has_many :categories, dependent: :destroy
+  belongs_to :user, foreign_key: 'author_id'
 
-  has_many :results, through: :users, foreign_key: author_id
+  has_many :questions, dependent: :destroy
+
+  has_many :results, dependent: :destroy
 
   def self.tests_category(category_title)
     joins('join categories on tests.category_id = categories.id')

@@ -1,5 +1,5 @@
 class Answer < ApplicationRecord
-  has_many :questions, dependent: :destroy
+  belongs_to :question
 
-  has_many :users
+  belongs_to :user, foreign_key: 'respondent_id'
 end

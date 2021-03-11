@@ -1,3 +1,3 @@
 class Result < ApplicationRecord
-  has_many :tests, through: :users, foreign_key: respondent_id
+  has_one :user, through: :tests, foreign_key: 'respondent_id'
 end

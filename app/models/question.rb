@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-  belongs_to :answer
+  belongs_to :test
 
-  has_many :tests, dependent: :destroy
+  has_many :answers, dependent: :destroy
 end
