@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class Answer
 class Question < ApplicationRecord
   belongs_to :test
 

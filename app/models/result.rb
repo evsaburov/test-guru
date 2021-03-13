@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# class Result
 class Result < ApplicationRecord
-  has_one :user, through: :tests, foreign_key: 'respondent_id'
+  belongs_to :test
+  belongs_to :user
 end
