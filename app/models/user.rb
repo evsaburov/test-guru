@@ -1,8 +1,11 @@
 class User < ApplicationRecord
-  def tests(level)
+  has_many :results, dependent: :destroy
+  has_many :tests, through: :results
+
+  def tests_with_level(level)
     Test.where(level: level)
-        .joins('join results on results.test_id = tests.id')
-        .where('results.respondent_id = ?', id)
+        .joins(:results)
+        .where(results: { user_id: id } )
         .pluck(:title)
   end
 end
